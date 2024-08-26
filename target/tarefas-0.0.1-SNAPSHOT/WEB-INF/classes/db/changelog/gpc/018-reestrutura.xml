@@ -1,0 +1,193 @@
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"	xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+ http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-2.0.xsd
+ http://www.liquibase.org/xml/ns/dbchangelog-ext
+ http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd">
+
+    <changeSet  id="1"  author="Lucas">
+        <dropForeignKeyConstraint  baseTableName="militaria"
+               baseTableSchemaName="public"
+               constraintName="fk_militaria"/>
+        <addForeignKeyConstraint  baseColumnNames="id"
+                                  baseTableName="militaria"
+                                  baseTableSchemaName="public"
+                                  constraintName="fk_militaria"
+                                  onDelete="CASCADE"
+                                  referencedColumnNames="id"
+                                  referencedTableName="diorama"
+                                  referencedTableSchemaName="public"
+        />
+        <dropForeignKeyConstraint  baseTableName="autos"
+                                   baseTableSchemaName="public"
+                                   constraintName="fk_autos"/>
+        <addForeignKeyConstraint  baseColumnNames="id"
+                                  baseTableName="autos"
+                                  baseTableSchemaName="public"
+                                  constraintName="fk_autos"
+                                  onDelete="CASCADE"
+                                  referencedColumnNames="id"
+                                  referencedTableName="diorama"
+                                  referencedTableSchemaName="public"
+        />
+        <dropForeignKeyConstraint  baseTableName="figuras"
+                                   baseTableSchemaName="public"
+                                   constraintName="fk_figuras"/>
+        <addForeignKeyConstraint  baseColumnNames="id"
+                                  baseTableName="figuras"
+                                  baseTableSchemaName="public"
+                                  constraintName="fk_figuras"
+                                  onDelete="CASCADE"
+                                  referencedColumnNames="id"
+                                  referencedTableName="diorama"
+                                  referencedTableSchemaName="public"
+        />
+        <dropForeignKeyConstraint  baseTableName="ficcao"
+                                   baseTableSchemaName="public"
+                                   constraintName="fk_ficcao"/>
+        <addForeignKeyConstraint  baseColumnNames="id"
+                                  baseTableName="ficcao"
+                                  baseTableSchemaName="public"
+                                  constraintName="fk_ficcao"
+                                  onDelete="CASCADE"
+                                  referencedColumnNames="id"
+                                  referencedTableName="diorama"
+                                  referencedTableSchemaName="public"
+        />
+        <dropForeignKeyConstraint  baseTableName="helicopteros"
+                                   baseTableSchemaName="public"
+                                   constraintName="fk_helicopteros"/>
+        <addForeignKeyConstraint  baseColumnNames="id"
+                                  baseTableName="helicopteros"
+                                  baseTableSchemaName="public"
+                                  constraintName="fk_helicopteros"
+                                  onDelete="CASCADE"
+                                  referencedColumnNames="id"
+                                  referencedTableName="diorama"
+                                  referencedTableSchemaName="public"
+        />
+        <dropForeignKeyConstraint  baseTableName="aviacao"
+                                   baseTableSchemaName="public"
+                                   constraintName="fk_aviacao"/>
+        <addForeignKeyConstraint  baseColumnNames="id"
+                                  baseTableName="aviacao"
+                                  baseTableSchemaName="public"
+                                  constraintName="fk_aviacao"
+                                  onDelete="CASCADE"
+                                  referencedColumnNames="id"
+                                  referencedTableName="diorama"
+                                  referencedTableSchemaName="public"
+        />
+    </changeSet>
+    <changeSet id="2" author="Lucas">
+
+        <dropForeignKeyConstraint  baseTableName="basekits"
+                                   baseTableSchemaName="public"
+                                   constraintName="fk_basekits"/>
+        <dropPrimaryKey  tableName= "basekits" constraintName="basekit_pk"/>
+        <renameTable  newTableName="astronautica"
+                      oldTableName="basekits"
+                      schemaName="public"/>
+
+        <addPrimaryKey tableName="astronautica" columnNames="id" constraintName="astronautica_pk"/>
+        <addForeignKeyConstraint  baseColumnNames="id"
+                                  baseTableName="astronautica"
+                                  baseTableSchemaName="public"
+                                  constraintName="fk_astronautica"
+                                  onDelete="CASCADE"
+                                  referencedColumnNames="id"
+                                  referencedTableName="diorama"
+                                  referencedTableSchemaName="public"
+        />
+        <createTable tableName="naval">
+            <column name="id" type="int(36)">
+                <constraints
+                        nullable="false"
+                        primaryKey="true"
+                        primaryKeyName="naval_pk"
+                />
+            </column>
+            <column name="tipo" type="VARCHAR"/>
+        </createTable>
+
+        <addForeignKeyConstraint  baseColumnNames="id"
+                                  baseTableName="naval"
+                                  baseTableSchemaName="public"
+                                  constraintName="fk_naval"
+                                  onDelete="CASCADE"
+                                  referencedColumnNames="id"
+                                  referencedTableName="diorama"
+                                  referencedTableSchemaName="public"
+        />
+    </changeSet>
+    <changeSet id="3" author="Lucas">
+
+        <addColumn schemaName= "public"
+                   tableName="autos">
+            <column name="tipo"
+                    type="VARCHAR"/>
+        </addColumn>
+        <addColumn schemaName= "public"
+                   tableName="aviacao">
+            <column name="tipo"
+                    type="VARCHAR"/>
+        </addColumn>
+        <addColumn schemaName= "public"
+                   tableName="ficcao">
+            <column name="tipo"
+                    type="VARCHAR"/>
+        </addColumn>
+        <addColumn schemaName= "public"
+                   tableName="figuras">
+            <column name="tipo"
+                    type="VARCHAR"/>
+        </addColumn>
+        <addColumn schemaName= "public"
+                   tableName="helicopteros">
+            <column name="tipo"
+                    type="VARCHAR"/>
+        </addColumn>
+        <addColumn schemaName= "public"
+                   tableName="militaria">
+            <column name="tipo"
+                    type="VARCHAR"/>
+        </addColumn>
+
+        <sql endDelimiter="\nGO"
+             splitStatements="true">
+            update autos aut set tipo = bk.tipo from astronautica bk where bk.id=aut.id
+        </sql>
+        <sql endDelimiter="\nGO"
+             splitStatements="true">
+            update aviacao avi set tipo = bk.tipo from astronautica bk where bk.id=avi.id
+        </sql>
+        <sql endDelimiter="\nGO"
+             splitStatements="true">
+            update ficcao fic set tipo = bk.tipo from astronautica bk where bk.id=fic.id
+        </sql>
+        <sql endDelimiter="\nGO"
+             splitStatements="true">
+            update figuras fig set tipo = bk.tipo from astronautica bk where bk.id=fig.id
+        </sql>
+        <sql endDelimiter="\nGO"
+             splitStatements="true">
+            update helicopteros hel set tipo = bk.tipo from astronautica bk where bk.id=hel.id
+        </sql>
+        <sql endDelimiter="\nGO"
+             splitStatements="true">
+            update militaria mil set tipo = bk.tipo from astronautica bk where bk.id=mil.id
+        </sql>
+        <sql endDelimiter="\nGO"
+             splitStatements="true">
+            delete from astronautica where id not in (select id from diorama d where d.categoria = 'astronautica')
+        </sql>
+    </changeSet>
+
+    <changeSet id="4" author="Lucas">
+        <update schemaName="public" tableName="diorama">
+            <column name="categoria" value="astronautica"/>
+            <where> categoria = 'astronauitca' </where>
+        </update>
+    </changeSet>
+
+</databaseChangeLog>

@@ -1,0 +1,46 @@
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"	xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+ http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-2.0.xsd
+ http://www.liquibase.org/xml/ns/dbchangelog-ext
+ http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd">
+
+    <changeSet  id="1"  author="Lucas">
+        <createTable tableName="diorama">
+            <column name="id" type="int(36)">
+                <constraints
+                        nullable="false"
+                        primaryKey="true"
+                        primaryKeyName="diorama_pk"
+                />
+            </column>
+            <column name="nome" type="VARCHAR"/>
+            <column name="escala" type="VARCHAR"/>
+            <column name="nivel" type="VARCHAR"/>
+            <column name="melhorias" type="VARCHAR"/>
+        </createTable>
+
+    </changeSet>
+
+    <changeSet  id="2"  author="Lucas">
+        <addColumn schemaName= "public"
+                   tableName="diorama">
+        <column name="categoria" type="VARCHAR"/>
+        </addColumn>
+    </changeSet>
+
+    <changeSet  id="3"  author="Lucas">
+        <addColumn schemaName= "public"
+                   tableName="diorama">
+            <column name="fabricante" type="VARCHAR"/>
+        </addColumn>
+    </changeSet>
+
+    <changeSet  id="4" author="Lucas">
+        <addAutoIncrement columnDataType="int"
+                          columnName="id"
+                          incrementBy="1"
+                          schemaName="public"
+                          tableName="diorama"/>
+    </changeSet>
+</databaseChangeLog>

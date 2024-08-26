@@ -1,0 +1,33 @@
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"	xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+ http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-2.0.xsd
+ http://www.liquibase.org/xml/ns/dbchangelog-ext
+ http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd">
+
+    <changeSet  id="1"  author="Lucas">
+        <createTable tableName="autos">
+            <column name="id" type="int(36)">
+                <constraints
+                        nullable="false"
+                        primaryKey="true"
+                        primaryKeyName="autos_pk"
+                />
+            </column>
+            <column name="classificacao" type="VARCHAR"/>
+            <column name="nacionalidade_fab" type="VARCHAR"/>
+            <column name="enquadramento" type="VARCHAR"/>
+        </createTable>
+
+        <addForeignKeyConstraint  baseColumnNames="id"
+                                  baseTableName="autos"
+                                  baseTableSchemaName="public"
+                                  constraintName="fk_autos"
+                                  onDelete="CASCADE"
+                                  referencedColumnNames="id"
+                                  referencedTableName="basekits"
+                                  referencedTableSchemaName="public"
+        />
+
+    </changeSet>
+</databaseChangeLog>

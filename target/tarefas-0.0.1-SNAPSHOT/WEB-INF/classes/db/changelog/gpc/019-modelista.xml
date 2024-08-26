@@ -1,0 +1,72 @@
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"	xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+ http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-2.0.xsd
+ http://www.liquibase.org/xml/ns/dbchangelog-ext
+ http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd">
+
+    <changeSet  id="0"  author="Lucas">
+        <delete tableName="diorama">
+            <where> 1 = 1</where>
+        </delete>
+    </changeSet>
+
+    <changeSet  id="1"  author="Lucas">
+        <createTable tableName="modelista">
+            <column name="id" type="int(36)">
+                <constraints
+                        nullable="false"
+                        primaryKey="true"
+                        primaryKeyName="modelista_pk"
+                />
+            </column>
+            <column name="nome" type="VARCHAR(100)">
+                <constraints nullable="false" unique="true" uniqueConstraintName="UNIQUE_NOME"/>
+            </column>
+            <column name="email" type="VARCHAR(50)">
+                <constraints nullable="false" unique="true" uniqueConstraintName="UNIQUE_EMAIL"/>
+            </column>
+            <column name="cpf" type="VARCHAR(15)">
+                <constraints nullable="false" unique="true" uniqueConstraintName="UNIQUE_CPF"/>
+            </column>
+            <column name="telefone" type="VARCHAR(15)"/>
+            <column name="senha" type="VARCHAR(100)"/>
+        </createTable>
+
+        <addAutoIncrement columnDataType="int"
+                          columnName="id"
+                          incrementBy="1"
+                          schemaName= "public"
+                          tableName="modelista"/>
+
+        <addColumn schemaName= "public"
+                   tableName="diorama">
+            <column name="modelista_id" type="int(36)"/>
+        </addColumn>
+
+        <addForeignKeyConstraint  baseColumnNames="modelista_id"
+                                  baseTableName="diorama"
+                                  baseTableSchemaName= "public"
+                                  constraintName="fk_diorama"
+                                  onDelete="CASCADE"
+                                  referencedColumnNames="id"
+                                  referencedTableName="modelista"
+                                  referencedTableSchemaName= "public" />
+
+    </changeSet>
+
+    <changeSet  id="2"  author="Lucas">
+    <dropColumn
+            columnName="cpf"
+            schemaName="public"
+            tableName="modelista" />
+    </changeSet>
+
+    <changeSet  id="3"  author="Lucas">
+        <addColumn schemaName="public"
+                tableName="modelista" >
+            <column name="admin" type="boolean" defaultValue="false" />
+        </addColumn>
+    </changeSet>
+
+</databaseChangeLog>

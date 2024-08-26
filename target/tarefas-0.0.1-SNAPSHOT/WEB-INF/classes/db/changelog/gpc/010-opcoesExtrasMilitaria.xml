@@ -1,0 +1,92 @@
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"	xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+ http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-2.0.xsd
+ http://www.liquibase.org/xml/ns/dbchangelog-ext
+ http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd">
+
+    <changeSet  id="1"  author="Lucas">
+        <insert  schemaName="public"
+                 tableName="opcoes">
+            <column  name="label"  value="Rodas"/>
+            <column  name="value"  value="Rodas"/>
+            <column  name="origem"  value="propulsao"/>
+        </insert>
+        <insert  schemaName="public"
+                 tableName="opcoes">
+            <column  name="label"  value="Meia Lagarta"/>
+            <column  name="value"  value="Meia Lagarta"/>
+            <column  name="origem"  value="propulsao"/>
+        </insert>
+        <insert  schemaName="public"
+                 tableName="opcoes">
+            <column  name="label"  value="Lagarta total"/>
+            <column  name="value"  value="Lagarta total"/>
+            <column  name="origem"  value="propulsao"/>
+        </insert>
+        <insert  schemaName="public"
+                 tableName="opcoes">
+            <column  name="label"  value="Fixo"/>
+            <column  name="value"  value="Fixo"/>
+            <column  name="origem"  value="propulsao"/>
+        </insert>
+        <insert  schemaName="public"
+                 tableName="opcoes">
+            <column  name="label"  value="Semi reboque"/>
+            <column  name="value"  value="Semi reboque"/>
+            <column  name="origem"  value="propulsao"/>
+        </insert>
+    </changeSet>
+
+    <changeSet  id="2"  author="Lucas">
+        <insert  schemaName="public"
+                 tableName="opcoes">
+            <column  name="label"  value="Alemão"/>
+            <column  name="value"  value="Alemão"/>
+            <column  name="origem"  value="nacionalidade"/>
+        </insert>
+        <insert  schemaName="public"
+                 tableName="opcoes">
+            <column  name="label"  value="Inglês"/>
+            <column  name="value"  value="Inglês"/>
+            <column  name="origem"  value="nacionalidade"/>
+        </insert>
+        <insert  schemaName="public"
+                 tableName="opcoes">
+            <column  name="label"  value="Francês"/>
+            <column  name="value"  value="Francês"/>
+            <column  name="origem"  value="nacionalidade"/>
+        </insert>
+        <insert  schemaName="public"
+                 tableName="opcoes">
+            <column  name="label"  value="Americano"/>
+            <column  name="value"  value="Americano"/>
+            <column  name="origem"  value="nacionalidade"/>
+        </insert>
+        <insert  schemaName="public"
+                 tableName="opcoes">
+            <column  name="label"  value="Japonês"/>
+            <column  name="value"  value="Japonês"/>
+            <column  name="origem"  value="nacionalidade"/>
+        </insert>
+        <insert  schemaName="public"
+                 tableName="opcoes">
+            <column  name="label"  value="Italiano"/>
+            <column  name="value"  value="Italiano"/>
+            <column  name="origem"  value="nacionalidade"/>
+        </insert>
+        <insert  schemaName="public"
+                 tableName="opcoes">
+            <column  name="label"  value="Russo"/>
+            <column  name="value"  value="Russo"/>
+            <column  name="origem"  value="nacionalidade"/>
+        </insert>
+        <insert  schemaName="public"
+                 tableName="opcoes">
+            <column  name="label"  value="Outras"/>
+            <column  name="value"  value="Outras"/>
+            <column  name="origem"  value="nacionalidade"/>
+        </insert>
+    </changeSet>
+
+</databaseChangeLog>

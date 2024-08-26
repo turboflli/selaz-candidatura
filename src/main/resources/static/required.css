@@ -1,0 +1,12 @@
+input:valid {
+    border-color: #48c78e;
+}
+input:invalid {
+    border-color: #f14668;
+}
+select:valid {
+    border-color: #48c78e;
+}
+select:invalid {
+    border-color: #f14668;
+}

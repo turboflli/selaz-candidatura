@@ -1,0 +1,194 @@
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"	xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+ http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-2.0.xsd
+ http://www.liquibase.org/xml/ns/dbchangelog-ext
+ http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd">
+
+    <changeSet  id="1"  author="Lucas">
+        <createTable tableName="opcoes">
+            <column name="id" type="int(36)">
+                <constraints
+                        nullable="false"
+                        primaryKey="true"
+                        primaryKeyName="opcoes_pk"
+                />
+            </column>
+            <column name="label" type="VARCHAR"/>
+            <column name="value" type="VARCHAR"/>
+            <column name="origem" type="VARCHAR"/>
+        </createTable>
+
+        <addAutoIncrement columnDataType="int"
+                          columnName="id"
+                          incrementBy="1"
+                          schemaName="public"
+                          tableName="opcoes"/>
+
+    </changeSet>
+
+    <changeSet  id="2"  author="Lucas">
+        <insert  schemaName="public"
+                 tableName="opcoes">
+            <column  name="label"  value="Foguete"/>
+            <column  name="value"  value="Foguete"/>
+            <column  name="origem"  value="astronautica"/>
+        </insert>
+        <insert  schemaName="public"
+                 tableName="opcoes">
+            <column  name="label"  value="Modulo"/>
+            <column  name="value"  value="Modulo"/>
+            <column  name="origem"  value="astronautica"/>
+        </insert>
+        <insert  schemaName="public"
+                 tableName="opcoes">
+            <column  name="label"  value="Satélite"/>
+            <column  name="value"  value="Satélite"/>
+            <column  name="origem"  value="astronautica"/>
+        </insert>
+        <insert  schemaName="public"
+                 tableName="opcoes">
+            <column  name="label"  value="Outros"/>
+            <column  name="value"  value="Outros"/>
+            <column  name="origem"  value="astronautica"/>
+        </insert>
+    </changeSet>
+
+    <changeSet  id="3"  author="Lucas">
+        <insert  schemaName="public"
+                 tableName="opcoes">
+            <column  name="label"  value="Caminhão"/>
+            <column  name="value"  value="Caminhão"/>
+            <column  name="origem"  value="militaria"/>
+        </insert>
+        <insert  schemaName="public"
+                 tableName="opcoes">
+            <column  name="label"  value="Tanque"/>
+            <column  name="value"  value="Tanque"/>
+            <column  name="origem"  value="militaria"/>
+        </insert>
+        <insert  schemaName="public"
+                 tableName="opcoes">
+            <column  name="label"  value="Blindado"/>
+            <column  name="value"  value="Blindado"/>
+            <column  name="origem"  value="militaria"/>
+        </insert>
+        <insert  schemaName="public"
+                 tableName="opcoes">
+            <column  name="label"  value="Artillaria"/>
+            <column  name="value"  value="Artillaria"/>
+            <column  name="origem"  value="militaria"/>
+        </insert>
+    </changeSet>
+
+    <changeSet  id="4"  author="Lucas">
+        <insert  schemaName="public"
+                 tableName="opcoes">
+            <column  name="label"  value="Hélice"/>
+            <column  name="value"  value="Hélice"/>
+            <column  name="origem"  value="aviacao"/>
+        </insert>
+        <insert  schemaName="public"
+                 tableName="opcoes">
+            <column  name="label"  value="Jatos"/>
+            <column  name="value"  value="Jatos"/>
+            <column  name="origem"  value="aviacao"/>
+        </insert>
+        <insert  schemaName="public"
+                 tableName="opcoes">
+            <column  name="label"  value="Civil"/>
+            <column  name="value"  value="Civil"/>
+            <column  name="origem"  value="aviacao"/>
+        </insert>
+    </changeSet>
+
+    <changeSet  id="5"  author="Lucas">
+        <insert  schemaName="public"
+                 tableName="opcoes">
+            <column  name="label"  value="Militar"/>
+            <column  name="value"  value="Militar"/>
+            <column  name="origem"  value="helicopteros"/>
+        </insert>
+        <insert  schemaName="public"
+                 tableName="opcoes">
+            <column  name="label"  value="Civil"/>
+            <column  name="value"  value="Civil"/>
+            <column  name="origem"  value="helicopteros"/>
+        </insert>
+    </changeSet>
+
+    <changeSet  id="6"  author="Lucas">
+        <insert  schemaName="public"
+                 tableName="opcoes">
+            <column  name="label"  value="Competição"/>
+            <column  name="value"  value="Competição"/>
+            <column  name="origem"  value="autos"/>
+        </insert>
+        <insert  schemaName="public"
+                 tableName="opcoes">
+            <column  name="label"  value="Civil"/>
+            <column  name="value"  value="Civilauto"/>
+            <column  name="origem"  value="autos"/>
+        </insert>
+    </changeSet>
+
+    <changeSet  id="7"  author="Lucas">
+        <insert  schemaName="public"
+                 tableName="opcoes">
+            <column  name="label"  value="Ficção"/>
+            <column  name="value"  value="Ficção"/>
+            <column  name="origem"  value="figuras"/>
+        </insert>
+        <insert  schemaName="public"
+                 tableName="opcoes">
+            <column  name="label"  value="Histórico"/>
+            <column  name="value"  value="Histórico"/>
+            <column  name="origem"  value="figuras"/>
+        </insert>
+    </changeSet>
+
+    <changeSet  id="8"  author="Lucas">
+        <insert  schemaName="public"
+                 tableName="opcoes">
+            <column  name="label"  value="Veículo"/>
+            <column  name="value"  value="Veículo"/>
+            <column  name="origem"  value="ficcao"/>
+        </insert>
+        <insert  schemaName="public"
+                 tableName="opcoes">
+            <column  name="label"  value="Nave"/>
+            <column  name="value"  value="Nave"/>
+            <column  name="origem"  value="ficcao"/>
+        </insert>
+        <insert  schemaName="public"
+                 tableName="opcoes">
+            <column  name="label"  value="Figuras"/>
+            <column  name="value"  value="Figuras"/>
+            <column  name="origem"  value="ficcao"/>
+        </insert>
+        <insert  schemaName="public"
+                 tableName="opcoes">
+            <column  name="label"  value="Mecha"/>
+            <column  name="value"  value="Mecha"/>
+            <column  name="origem"  value="ficcao"/>
+        </insert>
+    </changeSet>
+
+    <changeSet  id="9"  author="Lucas">
+        <insert  schemaName="public"
+                 tableName="opcoes">
+            <column  name="label"  value="Civil"/>
+            <column  name="value"  value="Civil"/>
+            <column  name="origem"  value="naval"/>
+        </insert>
+        <insert  schemaName="public"
+                 tableName="opcoes">
+            <column  name="label"  value="Militar"/>
+            <column  name="value"  value="Militar"/>
+            <column  name="origem"  value="naval"/>
+        </insert>
+    </changeSet>
+
+
+
+</databaseChangeLog>

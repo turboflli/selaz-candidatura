@@ -1,0 +1,97 @@
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"	xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+ http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-2.0.xsd
+ http://www.liquibase.org/xml/ns/dbchangelog-ext
+ http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd">
+
+    <changeSet  id="1"  author="Lucas">
+        <insert  schemaName="public"
+                 tableName="opcoes">
+            <column  name="label"  value="Disney"/>
+            <column  name="value"  value="Disney"/>
+            <column  name="origem"  value="Ficção"/>
+        </insert>
+        <insert  schemaName="public"
+                 tableName="opcoes">
+            <column  name="label"  value="Warhammer"/>
+            <column  name="value"  value="Warhammer"/>
+            <column  name="origem"  value="Ficção"/>
+        </insert>
+        <insert  schemaName="public"
+                 tableName="opcoes">
+            <column  name="label"  value="Filmes"/>
+            <column  name="value"  value="Filmes"/>
+            <column  name="origem"  value="Ficção"/>
+        </insert>
+        <insert  schemaName="public"
+                 tableName="opcoes">
+            <column  name="label"  value="Outros"/>
+            <column  name="value"  value="Outros"/>
+            <column  name="origem"  value="Ficção"/>
+        </insert>
+
+
+        <insert  schemaName="public"
+                 tableName="opcoes">
+            <column  name="label"  value="Antigo"/>
+            <column  name="value"  value="Antigo"/>
+            <column  name="origem"  value="Histórico"/>
+        </insert>
+        <insert  schemaName="public"
+                 tableName="opcoes">
+            <column  name="label"  value="Medieval"/>
+            <column  name="value"  value="Medieval"/>
+            <column  name="origem"  value="Histórico"/>
+        </insert>
+        <insert  schemaName="public"
+                 tableName="opcoes">
+            <column  name="label"  value="WW I"/>
+            <column  name="value"  value="WW I"/>
+            <column  name="origem"  value="Histórico"/>
+        </insert>
+        <insert  schemaName="public"
+                 tableName="opcoes">
+            <column  name="label"  value="WW II"/>
+            <column  name="value"  value="WW II"/>
+            <column  name="origem"  value="Histórico"/>
+        </insert>
+        <insert  schemaName="public"
+                 tableName="opcoes">
+            <column  name="label"  value="Moderno"/>
+            <column  name="value"  value="Moderno"/>
+            <column  name="origem"  value="Histórico"/>
+        </insert>
+        <insert  schemaName="public"
+                 tableName="opcoes">
+            <column  name="label"  value="Século IXX"/>
+            <column  name="value"  value="Século IXX"/>
+            <column  name="origem"  value="Histórico"/>
+        </insert>
+        <insert  schemaName="public"
+                 tableName="opcoes">
+            <column  name="label"  value="Napoleonicas"/>
+            <column  name="value"  value="Napoleonicas"/>
+            <column  name="origem"  value="Histórico"/>
+        </insert>
+        <insert  schemaName="public"
+                 tableName="opcoes">
+            <column  name="label"  value="Viking"/>
+            <column  name="value"  value="Viking"/>
+            <column  name="origem"  value="Histórico"/>
+        </insert>
+        <insert  schemaName="public"
+                 tableName="opcoes">
+            <column  name="label"  value="Romano"/>
+            <column  name="value"  value="Romano"/>
+            <column  name="origem"  value="Histórico"/>
+        </insert>
+        <insert  schemaName="public"
+                 tableName="opcoes">
+            <column  name="label"  value="Outros"/>
+            <column  name="value"  value="Outros"/>
+            <column  name="origem"  value="Histórico"/>
+        </insert>
+    </changeSet>
+
+</databaseChangeLog>

@@ -1,0 +1,33 @@
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"	xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+ http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-2.0.xsd
+ http://www.liquibase.org/xml/ns/dbchangelog-ext
+ http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd">
+
+    <changeSet  id="1"  author="Lucas">
+        <createTable tableName="user">
+            <column name="id" type="int(36)">
+                <constraints
+                        nullable="false"
+                        primaryKey="true"
+                        primaryKeyName="user_pk"
+                />
+            </column>
+            <column name="username" type="VARCHAR(25)"/>
+            <column name="password" type="VARCHAR(100)"/>
+            <column name="nivel" type="VARCHAR(25)"/>
+            <column name="admin" type="boolean"/>
+
+        </createTable>
+
+    </changeSet>
+
+    <changeSet  id="2" author="Lucas">
+        <addAutoIncrement columnDataType="int"
+                          columnName="id"
+                          incrementBy="1"
+                          schemaName="public"
+                          tableName="user"/>
+    </changeSet>
+</databaseChangeLog>

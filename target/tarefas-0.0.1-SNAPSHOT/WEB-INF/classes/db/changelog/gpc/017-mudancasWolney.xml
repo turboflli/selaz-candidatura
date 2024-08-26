@@ -1,0 +1,471 @@
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"	xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+ http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-2.0.xsd
+ http://www.liquibase.org/xml/ns/dbchangelog-ext
+ http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd">
+    <changeSet  id="1"  author="Lucas">
+        <dropColumn
+                columnName="tembase"
+                    schemaName="public"
+                    tableName="basekits" />
+        <addColumn schemaName= "public"
+                   tableName="diorama">
+            <column name="tembase"
+                    type="boolean"/>
+            <column name="tematica"
+                    type="boolean" />
+        </addColumn>
+    </changeSet>
+
+    <changeSet  id="2"  author="Lucas">
+        <delete  schemaName="public"
+                 tableName="opcoes">
+            <where>"label" = 'Jatos' and value = 'Jatos' and origem = 'aviacao'</where>
+        </delete>
+
+        <delete  schemaName="public"
+                 tableName="opcoes">
+            <where>"label" = 'Hélice' and value = 'Hélice' and origem = 'aviacao'</where>
+        </delete>
+        <insert  schemaName="public"
+                 tableName="opcoes">
+            <column  name="label"  value="Militar"/>
+            <column  name="value"  value="Militaravi"/>
+            <column  name="origem"  value="aviacao"/>
+        </insert>
+        <update schemaName="public" tableName="opcoes">
+            <column name="value" value="Civilavi"/>
+            <where>"label" = 'Civil' and value = 'Civil' and origem = 'aviacao'</where>
+        </update>
+
+        <addColumn schemaName= "public"
+                   tableName="aviacao">
+            <column name="utilizacao"
+                    type="VARCHAR">
+                <constraints nullable="true"/>
+            </column>
+            <column name="motores"
+                    type="VARCHAR">
+                <constraints nullable="true" />
+            </column>
+        </addColumn>
+    </changeSet>
+
+    <changeSet  id="3"  author="Lucas">
+        <insert  schemaName="public"
+                 tableName="opcoes">
+            <column  name="label"  value="Avião"/>
+            <column  name="value"  value="Avião"/>
+            <column  name="origem"  value="Civilavi"/>
+        </insert>
+        <insert  schemaName="public"
+                 tableName="opcoes">
+            <column  name="label"  value="Asas Rotativas"/>
+            <column  name="value"  value="Asas Rotativas"/>
+            <column  name="origem"  value="Civilavi"/>
+        </insert>
+        <insert  schemaName="public"
+                 tableName="opcoes">
+            <column  name="label"  value="Planador"/>
+            <column  name="value"  value="Planador"/>
+            <column  name="origem"  value="Civilavi"/>
+        </insert>
+        <insert  schemaName="public"
+                 tableName="opcoes">
+            <column  name="label"  value="Outros"/>
+            <column  name="value"  value="Outros"/>
+            <column  name="origem"  value="Civilavi"/>
+        </insert>
+        <delete  schemaName="public"
+                 tableName="opcoes">
+            <where>origem = 'propulsaoavi'</where>
+        </delete>
+        <insert  schemaName="public"
+                 tableName="opcoes">
+            <column  name="label"  value="Hélice"/>
+            <column  name="value"  value="Hélice"/>
+            <column  name="origem"  value="propulsaoavi"/>
+        </insert>
+        <insert  schemaName="public"
+                 tableName="opcoes">
+            <column  name="label"  value="Reação"/>
+            <column  name="value"  value="Reação"/>
+            <column  name="origem"  value="propulsaoavi"/>
+        </insert>
+    </changeSet>
+
+    <changeSet id="4" author="Lucas">
+        <insert  schemaName="public"
+                 tableName="opcoes">
+            <column  name="label"  value="Avião"/>
+            <column  name="value"  value="Avião Militar"/>
+            <column  name="origem"  value="Militaravi"/>
+        </insert>
+        <insert  schemaName="public"
+                 tableName="opcoes">
+            <column  name="label"  value="Drone "/>
+            <column  name="value"  value="Drone "/>
+            <column  name="origem"  value="Militaravi"/>
+        </insert>
+
+
+        <insert  schemaName="public"
+                 tableName="opcoes">
+            <column  name="label"  value="Asas Rotativas"/>
+            <column  name="value"  value="Asas Rotativas Militar"/>
+            <column  name="origem"  value="Militaravi"/>
+        </insert>
+        <insert  schemaName="public"
+                 tableName="escondidos">
+            <column  name="element_id"  value="propulsao_select"/>
+            <column  name="categoria"  value="aviacao"/>
+            <column  name="tipo"  value="Asas Rotativas Militar"/>
+        </insert>
+
+        <insert  schemaName="public"
+                 tableName="opcoes">
+            <column  name="label"  value="Bomba Voadora"/>
+            <column  name="value"  value="Bomba Voadora Militar"/>
+            <column  name="origem"  value="Militaravi"/>
+        </insert>
+        <insert  schemaName="public"
+                 tableName="escondidos">
+            <column  name="element_id"  value="propulsao_select"/>
+            <column  name="categoria"  value="aviacao"/>
+            <column  name="tipo"  value="Bomba Voadora Militar"/>
+        </insert>
+
+        <insert  schemaName="public"
+                 tableName="opcoes">
+            <column  name="label"  value="Planador"/>
+            <column  name="value"  value="Planador Militar"/>
+            <column  name="origem"  value="Militaravi"/>
+        </insert>
+        <insert  schemaName="public"
+                 tableName="escondidos">
+            <column  name="element_id"  value="propulsao_select"/>
+            <column  name="categoria"  value="aviacao"/>
+            <column  name="tipo"  value="Planador Militar"/>
+        </insert>
+
+        <insert  schemaName="public"
+                 tableName="opcoes">
+            <column  name="label"  value="Outros"/>
+            <column  name="value"  value="Outros Militar"/>
+            <column  name="origem"  value="Militaravi"/>
+        </insert>
+        <insert  schemaName="public"
+                 tableName="escondidos">
+            <column  name="element_id"  value="propulsao_select"/>
+            <column  name="categoria"  value="aviacao"/>
+            <column  name="tipo"  value="Outros Militar"/>
+        </insert>
+
+
+
+        <insert  schemaName="public"
+                 tableName="opcoes">
+            <column  name="label"  value="Avião"/>
+            <column  name="value"  value="Avião Civil"/>
+            <column  name="origem"  value="Civilavi"/>
+        </insert>
+        <insert  schemaName="public"
+                 tableName="opcoes">
+            <column  name="label"  value="Asas Rotativas"/>
+            <column  name="value"  value="Asas Rotativas Civil"/>
+            <column  name="origem"  value="Civilavi"/>
+        </insert>
+        <insert  schemaName="public"
+                 tableName="escondidos">
+            <column  name="element_id"  value="propulsao_select"/>
+            <column  name="categoria"  value="aviacao"/>
+            <column  name="tipo"  value="Asas Rotativas Civil"/>
+        </insert>
+        <insert  schemaName="public"
+                 tableName="opcoes">
+            <column  name="label"  value="Planador"/>
+            <column  name="value"  value="Planador Civil"/>
+            <column  name="origem"  value="Civilavi"/>
+        </insert>
+        <insert  schemaName="public"
+                 tableName="escondidos">
+            <column  name="element_id"  value="propulsao_select"/>
+            <column  name="categoria"  value="aviacao"/>
+            <column  name="tipo"  value="Planador Civil"/>
+        </insert>
+        <insert  schemaName="public"
+                 tableName="opcoes">
+            <column  name="label"  value="Outros"/>
+            <column  name="value"  value="Outros Civil"/>
+            <column  name="origem"  value="Civilavi"/>
+        </insert>
+        <insert  schemaName="public"
+                 tableName="escondidos">
+            <column  name="element_id"  value="propulsao_select"/>
+            <column  name="categoria"  value="aviacao"/>
+            <column  name="tipo"  value="Outros Civil"/>
+        </insert>
+
+    </changeSet>
+
+    <changeSet id="5" author="Lucas">
+        <update schemaName="public" tableName="opcoes">
+            <column name="value" value="Hélice Militar"/>
+            <column name="origem" value="Militaravi"/>
+            <where>"label" = 'Hélice' and value = 'Hélice' and origem = 'propulsaoavi'</where>
+        </update>
+        <update schemaName="public" tableName="opcoes">
+            <column name="value" value="Reação Militar"/>
+            <column name="origem" value="Militaravi"/>
+            <where>"label" = 'Reação' and value = 'Reação' and origem = 'propulsaoavi'</where>
+        </update>
+        <insert  schemaName="public"
+                 tableName="opcoes">
+            <column  name="label"  value="Hélice"/>
+            <column name="value" value="Hélice Civil"/>
+            <column name="origem" value="Civilavi"/>
+        </insert>
+        <insert  schemaName="public"
+                 tableName="opcoes">
+            <column  name="label"  value="Reação"/>
+            <column name="value" value="Reação Civil"/>
+            <column name="origem" value="Civilavi"/>
+        </insert>
+
+        <insert  schemaName="public"
+                 tableName="escondidos">
+            <column  name="element_id"  value="periodo_select"/>
+            <column  name="categoria"  value="aviacao"/>
+            <column  name="tipo"  value="Drone"/>
+        </insert>
+        <insert  schemaName="public"
+                 tableName="escondidos">
+            <column  name="element_id"  value="periodo_select"/>
+            <column  name="categoria"  value="aviacao"/>
+            <column  name="tipo"  value="Outros Militar"/>
+        </insert>
+        <insert  schemaName="public"
+                 tableName="escondidos">
+            <column  name="element_id"  value="periodo_select"/>
+            <column  name="categoria"  value="aviacao"/>
+            <column  name="tipo"  value="Planador Militar"/>
+        </insert>
+        <insert  schemaName="public"
+                 tableName="escondidos">
+            <column  name="element_id"  value="periodo_select"/>
+            <column  name="categoria"  value="aviacao"/>
+            <column  name="tipo"  value="Bomba Voadora Militar"/>
+        </insert>
+        <insert  schemaName="public"
+                 tableName="escondidos">
+            <column  name="element_id"  value="periodo_select"/>
+            <column  name="categoria"  value="aviacao"/>
+            <column  name="tipo"  value="Asas Rotativas Militar"/>
+        </insert>
+        <delete  schemaName="public"
+                 tableName="opcoes">
+            <where>"label" = 'Moderno' and value = 'Moderno' and origem = 'Hélice'</where>
+        </delete>
+        <update schemaName="public" tableName="opcoes">
+            <column name="origem" value="Hélice Militar"/>
+            <where>origem = 'Hélice'</where>
+        </update>
+        <update schemaName="public" tableName="opcoes">
+            <column name="origem" value="Reação Militar"/>
+            <where>origem = 'Jatos'</where>
+        </update>
+        <insert  schemaName="public"
+                 tableName="opcoes">
+            <column  name="label"  value="pós 2ªguerra"/>
+            <column  name="value"  value="pós 2ªguerra"/>
+            <column  name="origem"  value="Hélice Militar"/>
+        </insert>
+        <insert  schemaName="public"
+                 tableName="opcoes">
+            <column  name="label"  value="Moderno"/>
+            <column  name="value"  value="Moderno"/>
+            <column  name="origem"  value="Hélice Militar"/>
+        </insert>
+    </changeSet>
+
+
+    <changeSet  id="6"  author="Lucas">
+        <delete  schemaName="public"
+                 tableName="opcoes">
+            <where>"label" = 'Hélice'</where>
+        </delete>
+        <delete  schemaName="public"
+                 tableName="opcoes">
+            <where>"label" = 'Reação'</where>
+        </delete>
+        <addColumn schemaName= "public"
+                   tableName="aviacao">
+            <column name="familia"
+                    type="VARCHAR"/>
+        </addColumn>
+        <insert  schemaName="public"
+                 tableName="escondidos">
+            <column  name="element_id"  value="familia_select"/>
+            <column  name="categoria"  value="aviacao"/>
+            <column  name="tipo"  value="Hélice Civil"/>
+        </insert>
+    </changeSet>
+
+    <changeSet id="7" author="Lucas">
+        <sql endDelimiter="\nGO"
+             splitStatements="true">
+            delete from opcoes opc where opc.origem='Civilavi' and opc.value not like '%Civil'
+        </sql>
+        <insert  schemaName="public"
+                 tableName="escondidos">
+            <column  name="element_id"  value="familia_select"/>
+            <column  name="categoria"  value="aviacao"/>
+            <column  name="tipo"  value="Outros Civil"/>
+        </insert>
+        <insert  schemaName="public"
+                 tableName="escondidos">
+            <column  name="element_id"  value="familia_select"/>
+            <column  name="categoria"  value="aviacao"/>
+            <column  name="tipo"  value="Asas Rotativas Civil"/>
+        </insert>
+        <insert  schemaName="public"
+                 tableName="escondidos">
+            <column  name="element_id"  value="familia_select"/>
+            <column  name="categoria"  value="aviacao"/>
+            <column  name="tipo"  value="Planador Civil"/>
+        </insert>
+        <insert  schemaName="public"
+                 tableName="escondidos">
+            <column  name="element_id"  value="familia_select"/>
+            <column  name="categoria"  value="aviacao"/>
+            <column  name="tipo"  value="Avião Civil"/>
+        </insert>
+    </changeSet>
+
+    <changeSet  id="8"  author="Lucas">
+        <update schemaName="public" tableName="opcoes">
+            <column name="label" value="Americano"/>
+            <column name="value" value="Americano"/>
+            <where>"label" = 'American' and value = 'American' and origem = 'aerea'</where>
+        </update>
+    </changeSet>
+
+    <changeSet  id="9"  author="Lucas">
+
+        <delete  schemaName="public"
+                 tableName="opcoes">
+            <where>"label" = 'Outros' and value = 'Outros' and origem = 'aerea'</where>
+        </delete>
+
+        <insert  schemaName="public"
+                 tableName="opcoes">
+            <column  name="label"  value="Outros"/>
+            <column  name="value"  value="Outros"/>
+            <column  name="origem"  value="aerea"/>
+        </insert>
+
+        <update schemaName="public" tableName="opcoes">
+            <column name="label" value="Artilharia"/>
+            <column name="value" value="Artilharia"/>
+            <where>"label" = 'Artillaria' and value = 'Artillaria' </where>
+        </update>
+    </changeSet>
+
+    <changeSet  id="10"  author="Lucas">
+        <insert  schemaName="public"
+                 tableName="opcoes">
+            <column  name="label"  value="Helicópteros"/>
+            <column  name="value"  value="Helicópteros Civil"/>
+            <column  name="origem"  value="Civilavi"/>
+        </insert>
+        <insert  schemaName="public"
+                 tableName="opcoes">
+            <column  name="label"  value="Helicópteros"/>
+            <column  name="value"  value="Helicópteros Militar"/>
+            <column  name="origem"  value="Militaravi"/>
+        </insert>
+        <insert  schemaName="public"
+                 tableName="escondidos">
+            <column  name="element_id"  value="propulsao_select"/>
+            <column  name="categoria"  value="aviacao"/>
+            <column  name="tipo"  value="Helicópteros Militar"/>
+        </insert>
+        <insert  schemaName="public"
+                 tableName="escondidos">
+            <column  name="element_id"  value="propulsao_select"/>
+            <column  name="categoria"  value="aviacao"/>
+            <column  name="tipo"  value="Helicópteros Civil"/>
+        </insert>
+        <insert  schemaName="public"
+                 tableName="escondidos">
+            <column  name="element_id"  value="periodo_select"/>
+            <column  name="categoria"  value="aviacao"/>
+            <column  name="tipo"  value="Helicópteros Militar"/>
+        </insert>
+        <insert  schemaName="public"
+                 tableName="escondidos">
+            <column  name="element_id"  value="familia_select"/>
+            <column  name="categoria"  value="aviacao"/>
+            <column  name="tipo"  value="Helicópteros Civil"/>
+        </insert>
+    </changeSet>
+
+    <changeSet  id="11"  author="Lucas">
+        <delete  schemaName="public"
+        tableName="opcoes">
+            <where>value ='Outros' and origem='aerea'</where>
+        </delete>
+    </changeSet>
+
+    <changeSet  id="12"  author="Lucas">
+
+        <delete  schemaName="public"
+                 tableName="opcoes">
+            <where>"label" = 'Asas Rotativas' </where>
+        </delete>
+
+        <delete  schemaName="public"
+                 tableName="escondidos">
+            <where>tipo = 'Asas Rotativas Militar' </where>
+        </delete>
+
+        <delete  schemaName="public"
+                 tableName="escondidos">
+            <where>tipo = 'Asas Rotativas Civil' </where>
+        </delete>
+
+        <update schemaName="public" tableName="opcoes">
+            <column name="label" value="Asas Rotativas (Helicópteros )"/>
+            <column name="value" value="Asas Rotativas (Helicópteros ) Militar"/>
+            <where> value = 'Helicópteros Militar' </where>
+        </update>
+
+        <update schemaName="public" tableName="opcoes">
+            <column name="label" value="Asas Rotativas (Helicópteros )"/>
+            <column name="value" value="Asas Rotativas (Helicópteros ) Civil"/>
+            <where> value = 'Helicópteros Civil' </where>
+        </update>
+
+        <update schemaName="public" tableName="escondidos">
+            <column name="tipo" value="Asas Rotativas (Helicópteros ) Militar"/>
+            <where> tipo = 'Helicópteros Militar' </where>
+        </update>
+
+        <update schemaName="public" tableName="escondidos">
+            <column name="tipo" value="Asas Rotativas (Helicópteros ) Civil"/>
+            <where> tipo = 'Helicópteros Civil' </where>
+        </update>
+    </changeSet>
+
+    <changeSet  id="13"  author="Lucas">
+        <update schemaName="public" tableName="opcoes">
+            <column name="label" value="Força Aérea"/>
+            <column name="value" value="Força Aérea"/>
+            <where> value = 'Aeronáutica' </where>
+        </update>
+
+    </changeSet>
+
+
+</databaseChangeLog>

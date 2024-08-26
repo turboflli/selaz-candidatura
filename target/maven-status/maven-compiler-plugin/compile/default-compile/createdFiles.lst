@@ -1,0 +1,16 @@
+listagem\tarefas\services\JsonConverter.class
+listagem\tarefas\repositories\UserRepository.class
+listagem\tarefas\GetPort.class
+listagem\tarefas\repositories\TaskRepository.class
+listagem\tarefas\services\ChaveUtils.class
+listagem\tarefas\StartCorsApplication$1.class
+listagem\tarefas\enums\Status.class
+listagem\tarefas\controller\JspController.class
+listagem\tarefas\model\User.class
+listagem\tarefas\StartApplication.class
+listagem\tarefas\StartCorsApplication.class
+listagem\tarefas\SwaggerConfiguration.class
+listagem\tarefas\services\UserService.class
+listagem\tarefas\model\Task.class
+listagem\tarefas\services\TaskService.class
+listagem\tarefas\ServletInitializer.class

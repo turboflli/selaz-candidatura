@@ -1,0 +1,18 @@
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"	xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+ http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-2.0.xsd
+ http://www.liquibase.org/xml/ns/dbchangelog-ext
+ http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd">
+
+<changeSet  id="1"  author="Lucas">
+    <insert  schemaName="public"
+             tableName="user_pessoa">
+        <column  name="username"  value="userAdmin"/>
+        <column  name="senha"  value="65622087f8ee2daf1ea651100e94969c1a9fe309bbe393f2f133c0bf1c7b36d9"/>
+        <column  name="nivel"  value="admin - master"/>
+        <column  name="admin"  value="true"/>
+    </insert>
+</changeSet>
+
+</databaseChangeLog>

@@ -1,0 +1,88 @@
+
+.card+.card {
+    margin-top: 20px
+}
+
+.logout {
+    background-color: lightgray;
+    margin-bottom: 12px;
+    width: 100%;
+    position: absolute;
+    left: 0%;
+    top: 0px;
+}
+
+.logout .control {
+    position: relative;
+    float: right;
+    margin-left: auto;
+    margin-right: 20px;
+}
+
+.dataInput {
+    width: 200px;
+}
+
+.deleteIcon {
+    color: red !important;
+}
+
+.hero {
+    margin-left: 16% !important;
+}
+
+.hero-body {
+    padding-bottom: 1rem !important;
+    padding-top: 1.5rem !important;
+}
+
+
+/*-------------Tooltip-------*/
+/* Tooltip container */
+.tooltip {
+  position: relative;
+  display: inline-block;
+  border-bottom: 1px dotted black; /* If you want dots under the hoverable text */
+}
+
+/* Tooltip text */
+.tooltip .tooltiptext {
+  visibility: hidden;
+  width: 220px;
+  background-color: #fff;
+  color: #3e8ed0;
+  text-align: center;
+  padding: 5px 0;
+  border-radius: 6px;
+
+  /* Position the tooltip text */
+  position: absolute;
+  z-index: 1;
+  top: 125%;
+  left: -250%;
+  margin-left: -60px;
+
+  /* Fade in tooltip */
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+/* Tooltip arrow */
+.tooltip .tooltiptext::after {
+  content: "";
+  position: absolute;
+  bottom: 96%;
+  left: 49%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: #555 transparent transparent transparent;
+}
+
+/* Show the tooltip text when you mouse over the tooltip container */
+.tooltip:hover .tooltiptext {
+  visibility: visible;
+  opacity: 1;
+}
+
+
